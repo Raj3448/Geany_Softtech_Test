@@ -25,6 +25,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       children: [
         Scaffold(
           appBar: AppBar(
+            
             backgroundColor: buttonColor,
             leading: IconButton(
                 onPressed: () {

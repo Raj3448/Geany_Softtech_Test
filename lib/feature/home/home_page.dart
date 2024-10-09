@@ -20,15 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: buttonColor,
-          leading: IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: Icon(
-                Icons.arrow_back_ios,
-                size: 16.px,
-              )),
           title: Text(
             'Top Products',
             style: GoogleFonts.poppins(
@@ -109,11 +102,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(0),
+                              padding: EdgeInsets.only(
+                                bottom: 10,
+                              ),
                               child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  ClipRRect(
+                                  Container(
                                     clipBehavior: Clip.antiAlias,
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(8),
+                                            topRight: Radius.circular(8))),
                                     child: Image.network(
                                       allProductDetailModel
                                           .data[index].image.first.url,
@@ -218,8 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         onRatingUpdate: (value) {},
                                       ),
                                       Text(
-                                        allProductDetailModel
-                                            .data[index].rating
+                                        allProductDetailModel.data[index].rating
                                             .toString(),
                                         style: TextStyle(
                                             color: grey, fontSize: 12.px),
