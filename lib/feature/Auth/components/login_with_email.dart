@@ -93,10 +93,10 @@ class LoginScreenWithEmail extends StatelessWidget {
                       text: ' Reset Here',
                       style: TextStyle(
                           fontSize: 14,
-                          color: Colors.yellow,
+                          color: chatColor,
                           fontWeight: FontWeight.w300,
                           decoration: TextDecoration.underline,
-                          decorationColor: Colors.yellow),
+                          decorationColor: chatColor),
                     ),
                   ])),
                 )
@@ -127,7 +127,7 @@ class LoginScreenWithEmail extends StatelessWidget {
                     snackPosition: SnackPosition.BOTTOM,
                   );
                 } else {
-                  Get.to(()=> OtpScreen());
+                  Get.to(() => OtpScreen());
                 }
               },
               child: ButtonWidget(

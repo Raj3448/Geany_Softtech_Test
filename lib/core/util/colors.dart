@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 const backGroundColor = Color(0XFFFFFFFF);
 const red = Color(0XFFFF0000);
-const buttonColor = Color(0XFFFBBC04);
- const chatColor = Color(0XFfFFCB05);
+const buttonColor = Color(0xFF04C1FB);
+const chatColor = Color(0xFF05CDFF);
 const colorTransperent = Colors.transparent;
 const grey = Colors.grey;
 const black = Colors.black;
