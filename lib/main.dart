@@ -6,8 +6,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await registerDependecyInjections();
-  // await setupHiveBox();
   runApp(const MyApp());
 }
 

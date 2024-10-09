@@ -2,6 +2,7 @@
 import 'package:demoapp/core/util/colors.dart';
 import 'package:demoapp/core/util/sized_boxes.dart';
 import 'package:demoapp/core/widgets/button_widget.dart';
+import 'package:demoapp/feature/Auth/otp_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -125,7 +126,9 @@ class LoginScreenWithEmail extends StatelessWidget {
                     colorText: Colors.white,
                     snackPosition: SnackPosition.BOTTOM,
                   );
-                } else {}
+                } else {
+                  Get.to(()=> OtpScreen());
+                }
               },
               child: ButtonWidget(
                 backgroundColor: buttonColor,

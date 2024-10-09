@@ -11,7 +11,8 @@ class CreateBuyerAccountScreen extends StatefulWidget {
   CreateBuyerAccountScreen({super.key});
 
   @override
-  State<CreateBuyerAccountScreen> createState() => _CreateBuyerAccountScreenState();
+  State<CreateBuyerAccountScreen> createState() =>
+      _CreateBuyerAccountScreenState();
 }
 
 class _CreateBuyerAccountScreenState extends State<CreateBuyerAccountScreen> {
@@ -22,6 +23,7 @@ class _CreateBuyerAccountScreenState extends State<CreateBuyerAccountScreen> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
+  bool _checBox = false;
 
   @override
   void dispose() {
@@ -62,7 +64,7 @@ class _CreateBuyerAccountScreenState extends State<CreateBuyerAccountScreen> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Create an account',
+                    'Create an account as buyer',
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600, fontSize: 30.px),
                   ),
@@ -95,9 +97,7 @@ class _CreateBuyerAccountScreenState extends State<CreateBuyerAccountScreen> {
                 ),
                 sizedBoxHeight40,
                 GestureDetector(
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                   child: ButtonWidget(
                     backgroundColor: buttonColor,
                     title: 'CREATE ACCOUNT',
@@ -106,36 +106,48 @@ class _CreateBuyerAccountScreenState extends State<CreateBuyerAccountScreen> {
                   ),
                 ),
                 sizedBoxHeight20,
-                InkWell(
-                  onTap: () {},
-                  child: RichText(
-                    text: TextSpan(children: [
-                      TextSpan(
-                        text: 'By continuing, I agree of the',
-                        style:
-                            GoogleFonts.roboto(color: const Color(0XFF505050)),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _checBox,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _checBox = value ?? false;
+                        });
+                      },
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'By continuing, I agree of the',
+                            style: GoogleFonts.roboto(
+                                color: const Color(0XFF505050)),
+                          ),
+                          TextSpan(
+                            text: ' Terms',
+                            style: GoogleFonts.roboto(
+                                color: buttonColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.px),
+                          ),
+                          TextSpan(
+                            text: ' & ',
+                            style: GoogleFonts.roboto(
+                                color: const Color(0XFF505050)),
+                          ),
+                          TextSpan(
+                            text: 'Conditions.',
+                            style: GoogleFonts.roboto(
+                                color: buttonColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.px),
+                          ),
+                        ]),
                       ),
-                      TextSpan(
-                        text: ' Terms of Use',
-                        style: GoogleFonts.roboto(
-                            color: buttonColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14.px),
-                      ),
-                      TextSpan(
-                        text: '&',
-                        style:
-                            GoogleFonts.roboto(color: const Color(0XFF505050)),
-                      ),
-                      TextSpan(
-                        text: ' Privacy \npolicy ',
-                        style: GoogleFonts.roboto(
-                            color: buttonColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14.px),
-                      ),
-                    ]),
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),

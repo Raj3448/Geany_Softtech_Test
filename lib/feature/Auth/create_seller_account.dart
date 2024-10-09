@@ -11,7 +11,8 @@ class CreateSellerAccountScreen extends StatefulWidget {
   CreateSellerAccountScreen({super.key});
 
   @override
-  State<CreateSellerAccountScreen> createState() => _CreateSellerAccountScreenState();
+  State<CreateSellerAccountScreen> createState() =>
+      _CreateSellerAccountScreenState();
 }
 
 class _CreateSellerAccountScreenState extends State<CreateSellerAccountScreen> {
@@ -22,6 +23,11 @@ class _CreateSellerAccountScreenState extends State<CreateSellerAccountScreen> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController businessSectorController =
+      TextEditingController();
+  final TextEditingController panController = TextEditingController();
+  final TextEditingController gstinController = TextEditingController();
+  bool _checBox = false;
 
   @override
   void dispose() {
@@ -29,6 +35,9 @@ class _CreateSellerAccountScreenState extends State<CreateSellerAccountScreen> {
     nameController.dispose();
     passwordController.dispose();
     mobileController.dispose();
+    businessSectorController.dispose();
+    panController.dispose();
+    gstinController.dispose();
     super.dispose();
   }
 
@@ -62,7 +71,7 @@ class _CreateSellerAccountScreenState extends State<CreateSellerAccountScreen> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Create an account',
+                    'Create an account as seller',
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600, fontSize: 30.px),
                   ),
@@ -88,6 +97,19 @@ class _CreateSellerAccountScreenState extends State<CreateSellerAccountScreen> {
                     label: 'Password',
                     hintText: 'Password *'),
                 sizedBoxHeight30,
+                CreateAccountWidget(
+                    controller: businessSectorController,
+                    label: 'Business Sector',
+                    hintText: 'Business Sector *'),
+                sizedBoxHeight30,
+                CreateAccountWidget(
+                    controller: panController, label: 'PAN', hintText: 'PAN *'),
+                sizedBoxHeight30,
+                CreateAccountWidget(
+                    controller: gstinController,
+                    label: 'GSTIN',
+                    hintText: 'GSTIN *'),
+                sizedBoxHeight30,
                 Text(
                   'We will send you an SMS to verify your email & mobile number',
                   style: GoogleFonts.poppins(
@@ -95,9 +117,7 @@ class _CreateSellerAccountScreenState extends State<CreateSellerAccountScreen> {
                 ),
                 sizedBoxHeight40,
                 GestureDetector(
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                   child: ButtonWidget(
                     backgroundColor: buttonColor,
                     title: 'CREATE ACCOUNT',
@@ -106,37 +126,50 @@ class _CreateSellerAccountScreenState extends State<CreateSellerAccountScreen> {
                   ),
                 ),
                 sizedBoxHeight20,
-                InkWell(
-                  onTap: () {},
-                  child: RichText(
-                    text: TextSpan(children: [
-                      TextSpan(
-                        text: 'By continuing, I agree of the',
-                        style:
-                            GoogleFonts.roboto(color: const Color(0XFF505050)),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _checBox,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _checBox = value ?? false;
+                        });
+                      },
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: 'By continuing, I agree of the',
+                            style: GoogleFonts.roboto(
+                                color: const Color(0XFF505050)),
+                          ),
+                          TextSpan(
+                            text: ' Terms',
+                            style: GoogleFonts.roboto(
+                                color: buttonColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.px),
+                          ),
+                          TextSpan(
+                            text: ' & ',
+                            style: GoogleFonts.roboto(
+                                color: const Color(0XFF505050)),
+                          ),
+                          TextSpan(
+                            text: 'Conditions.',
+                            style: GoogleFonts.roboto(
+                                color: buttonColor,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.px),
+                          ),
+                        ]),
                       ),
-                      TextSpan(
-                        text: ' Terms of Use',
-                        style: GoogleFonts.roboto(
-                            color: buttonColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14.px),
-                      ),
-                      TextSpan(
-                        text: '&',
-                        style:
-                            GoogleFonts.roboto(color: const Color(0XFF505050)),
-                      ),
-                      TextSpan(
-                        text: ' Privacy \npolicy ',
-                        style: GoogleFonts.roboto(
-                            color: buttonColor,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14.px),
-                      ),
-                    ]),
-                  ),
+                    ),
+                  ],
                 ),
+                sizedBoxHeight30,
               ],
             ),
           ),

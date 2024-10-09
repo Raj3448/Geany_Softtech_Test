@@ -110,27 +110,25 @@ class AuthPage1 extends StatelessWidget {
                 style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w500, fontSize: 12.px),
               ),
-              Spacer(),
+              const Spacer(),
               GestureDetector(
                 onTap: () {
                   Get.to(() => LoginScreen());
                 },
-                child: Expanded(
-                  child: Container(
-                    //width: Adaptive.w(45),
-                    height: Adaptive.h(6),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: buttonColor),
+                child: Container(
+                  width: Adaptive.w(95),
+                  height: Adaptive.h(6),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: buttonColor),
+                  child: Center(
                     child: Center(
-                      child: Center(
-                        child: Text(
-                          'Login',
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.px,
-                              color: whiteColor),
-                        ),
+                      child: Text(
+                        'Login',
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.px,
+                            color: whiteColor),
                       ),
                     ),
                   ),
@@ -142,7 +140,7 @@ class AuthPage1 extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(()=> CreateSellerAccountScreen());
+                      Get.to(() => CreateSellerAccountScreen());
                     },
                     child: Container(
                       width: Adaptive.w(45),
@@ -165,7 +163,7 @@ class AuthPage1 extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(()=> CreateBuyerAccountScreen());
+                      Get.to(() => CreateBuyerAccountScreen());
                     },
                     child: Container(
                       width: Adaptive.w(45),

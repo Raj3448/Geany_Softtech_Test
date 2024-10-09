@@ -1,7 +1,10 @@
 import 'package:demoapp/core/util/colors.dart';
 import 'package:demoapp/core/util/sized_boxes.dart';
 import 'package:demoapp/core/widgets/button_widget.dart';
+import 'package:demoapp/feature/Auth/otp_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -39,8 +42,7 @@ class LoginScreenWithPhone extends StatelessWidget {
             
             
             ),
-                                                SizedBox(height: Adaptive.h(2),),
-
+              SizedBox(height: Adaptive.h(2),),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -60,7 +62,6 @@ class LoginScreenWithPhone extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                         decoration: TextDecoration.underline,
                         decorationColor:  Colors.blue
-
                         
                         ),
                       ),
@@ -71,7 +72,9 @@ class LoginScreenWithPhone extends StatelessWidget {
         ),
         SizedBox(height: Adaptive.h(8),),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Get.to(()=> OtpScreen());
+          },
           child: ButtonWidget(backgroundColor:buttonColor , title: 'Get Otp', textColor: Colors.white,heights: Adaptive.h(6),)),
         SizedBox(height: 2.h,),
         InkWell(
@@ -109,7 +112,6 @@ class LoginScreenWithPhone extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   fontSize: 14.px
               ),
-              
               ),
             ]
           )),
